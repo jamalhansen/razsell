@@ -1,7 +1,7 @@
 Given /^an API key of "([^\"]*)"$/ do |api_key|
   @api_key = api_key
   @sut = RazsellMixedIn.new
-  @query = Razsell::Query.new
+  @query = Razsell::Query.new @api_key
 end
 
 When /^the "([^\"]*)" is "([^\"]*)"$/ do |name, value|

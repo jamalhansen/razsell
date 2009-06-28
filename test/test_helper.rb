@@ -7,4 +7,5 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'razsell'
 
 class Test::Unit::TestCase
+
 end

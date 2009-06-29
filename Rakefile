@@ -10,6 +10,7 @@ begin
     gem.homepage = "http://github.com/rubyyot/razsell"
     gem.authors = ["Jamal Hansen"]
     gem.add_development_dependency('cucumber', '>= 0.3.11')
+    gem.add_development_dependency('mocha')
     gem.add_development_dependency('technicalpickles-shoulda')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end

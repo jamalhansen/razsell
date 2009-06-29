@@ -30,6 +30,10 @@ class QueryTest < Test::Unit::TestCase
       assert_equal 50, @query.items_per_page
     end
 
+    should "default page limit to 5" do
+      assert_equal 5, @query.page_limit
+    end
+
     should "default keywords to empty array" do
       assert_equal [], @query.keywords
     end
@@ -44,6 +48,18 @@ class QueryTest < Test::Unit::TestCase
 
     should "default grid cell background color to white" do
       assert_equal "FFFFFF", @query.grid_cell_background_color
+    end
+
+    should "default source to razsell" do
+      assert_equal "razsell", @query.source
+    end
+
+    should "default opensearch to true" do
+      assert_equal "true", @query.opensearch
+    end
+
+    should "default ft to gb" do
+      assert_equal "gb", @query.ft
     end
   end
 
@@ -92,6 +108,18 @@ class QueryTest < Test::Unit::TestCase
     should "set product type" do
       @query.product_type = Razsell::ProductTypes::MUG
       assert_equal Razsell::ProductTypes::MUG, @query.product_type
+    end
+  end
+
+  context "base url" do
+    should "know base url" do
+      @query = Razsell::Query.new 123456789012345678
+      assert_equal "http://feed.zazzle.com/feed", @query.send(:base_url)
+    end
+
+    should "include contributer in base url if supplied" do
+      @query = Razsell::Query.new(123456789012345678).for_contributer("kungfutees")
+      assert_equal "http://feed.zazzle.com/kungfutees/feed", @query.send(:base_url)
     end
   end
 end

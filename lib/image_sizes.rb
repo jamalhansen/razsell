@@ -1,6 +1,6 @@
 
 module Razsell
-  module GridCellSizes
+  module ImageSizes
     TINY = 'tiny'
     SMALL = 'small'
     MEDIUM = 'medium'

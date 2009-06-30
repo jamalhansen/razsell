@@ -1,13 +1,13 @@
 require 'sort_methods'
-require 'grid_cell_sizes'
+require 'image_sizes'
 
 module Razsell
   class Query
     include Razsell::SortMethods
-    include Razsell::GridCellSizes
+    include Razsell::ImageSizes
 
     attr_accessor :page_limit
-    attr_reader :associate
+    attr_reader :artist
 
     def initialize *args
       set_default_page_limit
@@ -20,8 +20,8 @@ module Razsell
         :opensearch => 'opensearch', :source => 'src'}
     end
 
-    def for_associate associate
-      @associate = associate
+    def for_artist artist
+      @artist = artist
       self
     end
 
@@ -30,7 +30,7 @@ module Razsell
     end
 
     def base_url
-      return "http://feed.zazzle.com/#{@associate}/rss" if @associate
+      return "http://feed.zazzle.com/#{@artist}/rss" if @artist
       "http://feed.zazzle.com/rss"
     end
 

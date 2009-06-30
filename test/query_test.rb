@@ -1,6 +1,6 @@
 require 'test_helper'
 require 'sort_methods'
-require 'grid_cell_sizes'
+require 'image_sizes'
 require 'product_types'
 
 
@@ -59,8 +59,8 @@ class QueryTest < Test::Unit::TestCase
     end
 
     should "set image size" do
-      @query.image_size = Razsell::GridCellSizes::SMALL
-      assert_equal Razsell::GridCellSizes::SMALL, @query.image_size
+      @query.image_size = Razsell::ImageSizes::SMALL
+      assert_equal Razsell::ImageSizes::SMALL, @query.image_size
     end
 
     should "set grid cell background color" do
@@ -85,8 +85,8 @@ class QueryTest < Test::Unit::TestCase
       assert_equal "http://feed.zazzle.com/rss", @query.send(:base_url)
     end
 
-    should "include associate in base url if supplied" do
-      @query = Razsell::Query.new.for_associate("kungfutees")
+    should "include artist in base url if supplied" do
+      @query = Razsell::Query.new.for_artist("kungfutees")
       assert_equal "http://feed.zazzle.com/kungfutees/rss", @query.send(:base_url)
     end
   end
@@ -97,6 +97,18 @@ class QueryTest < Test::Unit::TestCase
     end
 
     should "be alphabetical" do
+      qs = @query.to_querystring
+      expected = "bg=FFFFFF&ft=rss&isz=large&opensearch=1&pg=1&ps=50&src=razsell&st=popularity"
+      assert_equal expected, qs
+    end
+  end
+
+  context "url" do
+    setup do
+      @query = Razsell::Query.new
+    end
+
+    should "build url" do
       qs = @query.to_querystring
       expected = "bg=FFFFFF&ft=rss&isz=large&opensearch=1&pg=1&ps=50&src=razsell&st=popularity"
       assert_equal expected, qs

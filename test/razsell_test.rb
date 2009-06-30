@@ -5,7 +5,7 @@ class RazsellTest < Test::Unit::TestCase
 
   context "basic operations" do
     setup do
-      @query = Razsell::Query.new 123456789012345678
+      @query = Razsell::Query.new
     end
 
     should "return results" do

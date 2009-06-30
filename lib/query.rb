@@ -1,5 +1,6 @@
 require 'sort_methods'
 require 'image_sizes'
+require 'cgi'
 
 module Razsell
   class Query
@@ -35,7 +36,11 @@ module Razsell
     end
 
     def to_querystring
-      @querystring.to_a.map { |a| "#{get_querystring_identifier(a[0])}=#{a[1].to_s}" }.sort {|x,y| x <=> y }.join("&")
+      @querystring.to_a.map { |a| "#{get_querystring_identifier(a[0])}=#{format_value(a[1])}" }.sort {|x,y| x <=> y }.join("&")
+    end
+
+    def to_url
+      "#{base_url}?#{to_querystring}"
     end
 
     private
@@ -43,6 +48,11 @@ module Razsell
         return @keys[key] if @keys[key]
         "key#{key}"
       end
+
+      def format_value value
+        CGI.escape(value.to_s)
+      end
+
       
       def set_default_page_limit
         @page_limit = 5

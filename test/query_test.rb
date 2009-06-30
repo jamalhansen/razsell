@@ -101,6 +101,13 @@ class QueryTest < Test::Unit::TestCase
       expected = "bg=FFFFFF&ft=rss&isz=large&opensearch=1&pg=1&ps=50&src=razsell&st=popularity"
       assert_equal expected, qs
     end
+
+    should "encode values" do
+      @query.keywords = "bar baz"
+      qs = @query.to_querystring
+      expected = "bg=FFFFFF&ft=rss&isz=large&opensearch=1&pg=1&ps=50&qs=bar+baz&src=razsell&st=popularity"
+      assert_equal expected, qs
+    end
   end
 
   context "url" do
@@ -109,8 +116,15 @@ class QueryTest < Test::Unit::TestCase
     end
 
     should "build url" do
-      qs = @query.to_querystring
-      expected = "bg=FFFFFF&ft=rss&isz=large&opensearch=1&pg=1&ps=50&src=razsell&st=popularity"
+      qs = @query.to_url
+      expected = "http://feed.zazzle.com/rss?bg=FFFFFF&ft=rss&isz=large&opensearch=1&pg=1&ps=50&src=razsell&st=popularity"
+      assert_equal expected, qs
+    end
+
+    should "build url for a specific artist" do
+      query = Razsell::Query.new.for_artist("kungfutees")
+      qs = query.to_url
+      expected = "http://feed.zazzle.com/kungfutees/rss?bg=FFFFFF&ft=rss&isz=large&opensearch=1&pg=1&ps=50&src=razsell&st=popularity"
       assert_equal expected, qs
     end
   end

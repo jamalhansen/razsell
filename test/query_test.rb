@@ -2,6 +2,7 @@ require 'test_helper'
 require 'sort_methods'
 require 'image_sizes'
 require 'product_types'
+require 'sort_periods'
 
 
 
@@ -101,6 +102,13 @@ class QueryTest < Test::Unit::TestCase
       expected = "bg=FFFFFF&ft=rss&isz=large&opensearch=1&pg=1&ps=50&src=razsell&st=popularity"
       assert_equal expected, qs
     end
+    
+    should "remove nils" do
+      @query.product_type = nil
+      qs = @query.to_querystring
+      expected = "bg=FFFFFF&ft=rss&isz=large&opensearch=1&pg=1&ps=50&src=razsell&st=popularity"
+      assert_equal expected, qs
+    end
 
     should "encode values" do
       @query.keywords = "bar baz"
@@ -118,6 +126,19 @@ class QueryTest < Test::Unit::TestCase
     should "build url" do
       qs = @query.to_url
       expected = "http://feed.zazzle.com/rss?bg=FFFFFF&ft=rss&isz=large&opensearch=1&pg=1&ps=50&src=razsell&st=popularity"
+      assert_equal expected, qs
+    end
+
+    should "build url with all parameters" do
+      @query.keywords = "foo bar"
+      @query.product_line = 1234567890123456
+      @query.product_type = Razsell::ProductTypes::SHOES
+      @query.sort_type = Razsell::SortMethods::POPULARITY
+      @query.sort_period = Razsell::SortPeriods::THIS_WEEK
+      @query.image_size = Razsell::ImageSizes::LARGE
+      @query.image_background_color = "000000"
+      qs = @query.to_url
+      expected = "http://feed.zazzle.com/rss?bg=000000&cg=1234567890123456&ft=rss&isz=large&opensearch=1&pg=1&ps=50&pt=167&qs=foo+bar&sp=7&src=razsell&st=popularity"
       assert_equal expected, qs
     end
 

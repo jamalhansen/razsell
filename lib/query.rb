@@ -36,7 +36,7 @@ module Razsell
     end
 
     def to_querystring
-      @querystring.to_a.map { |a| "#{get_querystring_identifier(a[0])}=#{format_value(a[1])}" }.sort {|x,y| x <=> y }.join("&")
+      @querystring.to_a.map { |a| build_pair(a) }.sort {|x,y| x <=> y }.delete_if { |pair| pair == "" }.join("&")
     end
 
     def to_url
@@ -44,9 +44,13 @@ module Razsell
     end
 
     private
+      def build_pair pair
+        return "#{get_querystring_identifier(pair[0])}=#{format_value(pair[1])}" if pair[1]
+        ""
+      end
+
       def get_querystring_identifier key
-        return @keys[key] if @keys[key]
-        "key#{key}"
+        @keys[key] if @keys[key]
       end
 
       def format_value value

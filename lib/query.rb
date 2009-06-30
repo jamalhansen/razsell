@@ -30,8 +30,8 @@ module Razsell
     end
 
     def base_url
-      return "http://feed.zazzle.com/#{@associate}/feed" if @associate
-      "http://feed.zazzle.com/feed"
+      return "http://feed.zazzle.com/#{@associate}/rss" if @associate
+      "http://feed.zazzle.com/rss"
     end
 
     def to_querystring

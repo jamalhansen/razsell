@@ -82,12 +82,12 @@ class QueryTest < Test::Unit::TestCase
   context "base url" do
     should "know base url" do
       @query = Razsell::Query.new
-      assert_equal "http://feed.zazzle.com/feed", @query.send(:base_url)
+      assert_equal "http://feed.zazzle.com/rss", @query.send(:base_url)
     end
 
     should "include associate in base url if supplied" do
       @query = Razsell::Query.new.for_associate("kungfutees")
-      assert_equal "http://feed.zazzle.com/kungfutees/feed", @query.send(:base_url)
+      assert_equal "http://feed.zazzle.com/kungfutees/rss", @query.send(:base_url)
     end
   end
 

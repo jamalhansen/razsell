@@ -1,5 +1,4 @@
-require 'sort_methods'
-require 'image_sizes'
+require 'constants'
 require 'cgi'
 
 module Razsell
@@ -26,9 +25,9 @@ module Razsell
       self
     end
 
-    def add_criteria name, value
-      
-    end
+    #def add_criteria name, value
+    #  this.send name, value
+    #end
 
     def base_url
       return "http://feed.zazzle.com/#{@artist}/rss" if @artist

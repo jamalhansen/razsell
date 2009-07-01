@@ -14,9 +14,25 @@ module Razsell
         http_service.expects(:get).once
 
         engine = Razsell::Engine.new :http_service => http_service
-        query = Razsell::Query.new '12345678012345678'
+        query = Razsell::Query.new
 
         engine.request query
+      end
+
+      context "getting results" do
+        setup do
+          http_service = Razsell::HttpService.new
+          http_service.expects(:get).once.returns(feed("rockstar"))
+
+          engine = Razsell::Engine.new :http_service => http_service
+          query = Razsell::Query.new
+
+          @result = engine.request query
+        end
+
+        should "have total item count" do
+          assert_equal 3, @result.item_count
+        end
       end
     end
   end

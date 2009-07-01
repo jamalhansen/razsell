@@ -2,11 +2,11 @@
 
 module Razsell
   class Results
-    attr_accessor :item_count, :page_count, :items
+    attr_accessor :item_count, :items
 
-    def initialize
+    def initialize feed
+      @feed = feed
       @item_count = 3
-      @page_count = 1
       @items = [Razsell::Item.new]
     end
   end

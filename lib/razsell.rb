@@ -1,11 +1,11 @@
 require 'query'
 require 'results'
 require 'item'
-require 'sort_methods'
-require 'image_sizes'
+require 'engine'
 
 module Razsell
   def request query
-    Razsell::Results.new
+    engine = Razsell::Engine.new
+    engine.request(query)
   end
 end

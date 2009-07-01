@@ -1,10 +1,5 @@
 require 'test_helper'
-require 'sort_methods'
-require 'image_sizes'
-require 'product_types'
-require 'sort_periods'
-
-
+require 'constants'
 
 class QueryTest < Test::Unit::TestCase
   context "has defaulted parameters" do

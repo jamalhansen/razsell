@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'product_types'
+require 'constants/product_types'
 
 class ProductTypesTest < Test::Unit::TestCase
   include Razsell::ProductTypes

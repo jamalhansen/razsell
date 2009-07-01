@@ -1,3 +1,4 @@
+require 'http_service'
 
 module Razsell
   class Engine
@@ -6,12 +7,12 @@ module Razsell
     end
 
     def request query
-      @http_service.get query
+      feed = @http_service.get query
+      Razsell::Results.new feed
     end
 
     def get_http_service opts
-      return opts[:http_service] if opts[:http_service]
-      Razsell::HttpService.new
+      opts[:http_service] ? opts[:http_service] : Razsell::HttpService.new
     end
   end
 end

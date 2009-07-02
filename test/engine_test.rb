@@ -11,7 +11,7 @@ module Razsell
 
       should "accept http_service" do
         http_service = Razsell::HttpService.new
-        http_service.expects(:get).once
+        http_service.expects(:get).once.returns("")
 
         engine = Razsell::Engine.new :http_service => http_service
         query = Razsell::Query.new

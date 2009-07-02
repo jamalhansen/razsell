@@ -10,7 +10,10 @@ When /^the "([^\"]*)" is "([^\"]*)"$/ do |name, value|
 end
 
 When /^I query "([^\"]*)"$/ do |fixture|
-  @result = @sut.request(@query)
+  http_service = Razsell::HttpService.new
+  http_service.expects(:get).once.returns(feed(fixture))
+
+  @result = @sut.request(@query, :http_service => http_service)
 end
 
 Then /^there should be "([^\"]*)" items/ do |item_count|

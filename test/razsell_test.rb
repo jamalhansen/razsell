@@ -9,7 +9,10 @@ class RazsellTest < Test::Unit::TestCase
     end
 
     should "return results" do
-      result = request @query
+      http_service = Razsell::HttpService.new
+      http_service.expects(:get).once.returns("")
+
+      result = request @query, :http_service => http_service
       assert_equal Razsell::Results, result.class
     end
   end

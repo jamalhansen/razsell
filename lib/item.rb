@@ -1,10 +1,19 @@
 
 module Razsell
   class Item
-    attr_accessor :title
+    def initialize values={}
+      @values = values
+      self.class.class_eval do
+        add_attributes values
+      end
+    end
 
-    def initialize
-      @title = "Rockstar"
+    def self.add_attributes values
+      values.each_key do |key|
+        define_method "#{key.to_s}" do
+          @values[key]
+        end\
+      end
     end
   end
 end

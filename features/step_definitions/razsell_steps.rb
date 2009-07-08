@@ -26,3 +26,15 @@ Then /^the items should have the keyword "([^\"]*)"$/ do |keyword|
   end
 end
 
+Then /^the items should have a link to an image$/ do
+  @result.items.each do |item|
+    assert(/http:\/\/rlv.zcache.com\/.*\.jpg/ =~ item.content_url)
+  end
+end
+
+Then /^the items should have a link to a thumbnail$/ do
+  @result.items.each do |item|
+    assert(/http:\/\/rlv.zcache.com\/.*\.jpg/ =~ item.thumbnail_url)
+  end
+end
+

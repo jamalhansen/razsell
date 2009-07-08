@@ -144,4 +144,33 @@ class QueryTest < Test::Unit::TestCase
       assert_equal expected, qs
     end
   end
+
+  context "advancing the page" do
+    setup do
+      @query = Razsell::Query.new
+    end
+
+    should "start on page one" do
+      assert_equal 1, @query.page
+    end
+
+    should "increment with each page advance" do
+      @query.advance_page
+      assert_equal 2, @query.page
+    end
+
+    should "default page limit to 5" do
+      assert_equal 5, @query.page_limit
+    end
+
+    should "return true if next page is less than the page limit" do
+      @query.page_limit = 2
+      assert_equal true, @query.advance_page
+    end
+
+    should "return false if advance page attempts to advence beyond the page limit" do
+      @query.page_limit = 1
+      assert_equal false, @query.advance_page
+    end
+  end
 end

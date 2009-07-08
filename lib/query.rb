@@ -42,6 +42,13 @@ module Razsell
       "#{base_url}?#{to_querystring}"
     end
 
+    def advance_page
+      return false if @querystring[:page] >= page_limit
+
+      @querystring[:page] =  @querystring[:page] + 1
+      true
+    end
+
     private
       def build_pair pair
         return "#{get_querystring_identifier(pair[0])}=#{format_value(pair[1])}" if pair[1]

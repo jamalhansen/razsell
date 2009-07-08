@@ -8,7 +8,14 @@ module Razsell
 
     def request query
       feed = @http_service.get query
-      Razsell::Results.new feed
+      results = Razsell::Results.new feed
+
+      while results.has_more_pages? && query.advance_page
+        feed = @http_service.get query
+        results.add(feed)
+      end
+
+      results
     end
 
     def get_http_service opts

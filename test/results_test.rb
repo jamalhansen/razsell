@@ -65,4 +65,39 @@ class ResultsTest < Test::Unit::TestCase
       end
     end
   end
+
+  context "multiple pages" do
+
+    should "know total result count" do
+      results = Razsell::Results.new feed("page_1")
+      assert 5, results.result_count
+    end
+
+    should "know items per page" do
+      results = Razsell::Results.new feed("page_1")
+      assert 3, results.items_per_page
+    end
+
+    should "know if another page exists" do
+      results = Razsell::Results.new feed("page_1")
+      assert results.has_more_pages?
+    end
+
+    should "know if there is only one page" do
+      results = Razsell::Results.new feed("rockstar")
+      assert !results.has_more_pages?
+    end
+
+    should "know if it's on the last page" do
+      results = Razsell::Results.new feed("page_2")
+      assert !results.has_more_pages?
+    end
+
+    should "add additional pages" do
+      results = Razsell::Results.new feed("page_1")
+      assert_equal 3, results.items.length
+      results.add feed("page_2")
+      assert_equal 5, results.items.length
+    end
+  end
 end

@@ -9,7 +9,7 @@ begin
     gem.email = "jamal.hansen@gmail.com"
     gem.homepage = "http://github.com/rubyyot/razsell"
     gem.authors = ["Jamal Hansen"]
-    gem.add_dependency('hpricot')
+    gem.add_dependency('hpricot', '>= 0.8.1')
     gem.add_development_dependency('cucumber', '>= 0.3.11')
     gem.add_development_dependency('mocha')
     gem.add_development_dependency('technicalpickles-shoulda')

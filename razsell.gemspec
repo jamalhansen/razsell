@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jamal Hansen"]
-  s.date = %q{2009-07-19}
+  s.date = %q{2009-08-04}
   s.email = %q{jamal.hansen@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -20,7 +20,9 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "docs/RSSGuide1.02.pdf",
+     "features/product_lines.feature",
      "features/razsell.feature",
+     "features/step_definitions/product_line_steps.rb",
      "features/step_definitions/razsell_steps.rb",
      "features/support/env.rb",
      "features/support/razsell_mixed_in.rb",
@@ -32,6 +34,8 @@ Gem::Specification.new do |s|
      "lib/engine.rb",
      "lib/http_service.rb",
      "lib/item.rb",
+     "lib/product_line.rb",
+     "lib/product_line_parser.rb",
      "lib/query.rb",
      "lib/razsell.rb",
      "lib/results.rb",
@@ -40,7 +44,9 @@ Gem::Specification.new do |s|
      "test/fixtures.rb",
      "test/fixtures/page_1.rss",
      "test/fixtures/page_2.rss",
+     "test/fixtures/productlines.htm",
      "test/fixtures/rockstar.rss",
+     "test/product_line_parser_test.rb",
      "test/product_types_test.rb",
      "test/query_test.rb",
      "test/razsell_test.rb",
@@ -56,6 +62,7 @@ Gem::Specification.new do |s|
   s.test_files = [
     "test/engine_test.rb",
      "test/fixtures.rb",
+     "test/product_line_parser_test.rb",
      "test/results_test.rb",
      "test/test_helper.rb",
      "test/product_types_test.rb",

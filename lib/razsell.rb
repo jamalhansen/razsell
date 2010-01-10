@@ -1,8 +1,8 @@
-require 'query'
-require 'results'
-require 'item'
-require 'engine'
-require 'http_service'
+require 'razsell/engine'
+require 'razsell/results'
+require 'razsell/item'
+require 'razsell/query'
+
 
 module Razsell
   def request query, opts={}

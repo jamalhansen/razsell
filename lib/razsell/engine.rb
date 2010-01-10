@@ -1,5 +1,5 @@
-require 'http_service'
-require 'product_line_parser'
+require 'razsell/http_service'
+require 'razsell/product_line_parser'
 
 module Razsell
   class Engine

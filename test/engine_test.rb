@@ -1,6 +1,4 @@
 require 'test_helper'
-require 'engine'
-require 'http_service'
 
 module Razsell
   class EngineTest < Test::Unit::TestCase

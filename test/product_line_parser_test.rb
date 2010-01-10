@@ -1,4 +1,4 @@
-require 'product_line_parser'
+require 'test_helper'
 
 class ProductLineParserTest < Test::Unit::TestCase
   context "parsing the document" do

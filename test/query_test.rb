@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'constants'
 
 class QueryTest < Test::Unit::TestCase
   context "has defaulted parameters" do

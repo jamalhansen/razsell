@@ -1,4 +1,4 @@
-require 'constants'
+require 'razsell/constants'
 require 'cgi'
 
 module Razsell

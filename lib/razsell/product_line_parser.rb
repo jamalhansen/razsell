@@ -1,5 +1,5 @@
 require 'hpricot'
-require 'product_line'
+require 'razsell/product_line'
 
 module Razsell
   class ProductLineParser

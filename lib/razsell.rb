@@ -10,8 +10,9 @@ module Razsell
     engine.request(query)
   end
 
-  def product_lines_for artist, opts={}
+  def products_for artist, opts={}
     engine = Razsell::Engine.new opts
-    engine.product_lines_for artist
+    query = Razsell::Query.new.for_artist(artist)
+    engine.request(query)
   end
 end

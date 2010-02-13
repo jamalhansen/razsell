@@ -1,6 +1,10 @@
 require 'rubygems'
 require 'rake'
 
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
+require 'razsell'
+include Razsell
+
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
@@ -67,3 +71,12 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
+namespace :products do
+  desc "Returns a list of products for an artist"
+  task :for, :artist do |t, args|
+    abort "Please pass a data_root path like: rake products:for['my_login']" unless args[:artist]
+
+    results = products_for args[:artist]
+    results.items.sort {|x,y| x.title <=> y.title }.each { |p| puts p.title }
+  end
+end

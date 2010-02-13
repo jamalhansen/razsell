@@ -25,7 +25,7 @@ module Razsell
       item_hash = {}
       item_hash[:title] = strip_cdata(item.at("title").inner_html)
       item_hash[:guid] = item.at("guid").inner_html
-      item_hash[:pub_date] = DateTime.parse(item.at("pubDate").inner_html)
+      item_hash[:pub_date] = Time.parse(item.at("pubDate").inner_html)
       item_hash[:link] = item.at("link").inner_html
       item_hash[:author] = item.at("author").inner_html
       item_hash[:description] = strip_cdata(item.at("media:description").inner_html)

@@ -6,13 +6,14 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "razsell"
     gem.summary = %Q{A gem for getting info about products on a website that has a similar name}
+    gem.description = %Q{Queries Zazzle RSS feed for data.}
     gem.email = "jamal.hansen@gmail.com"
     gem.homepage = "http://github.com/rubyyot/razsell"
     gem.authors = ["Jamal Hansen"]
     gem.add_dependency('hpricot', '>= 0.8.1')
     gem.add_development_dependency('cucumber', '>= 0.3.11')
     gem.add_development_dependency('mocha')
-    gem.add_development_dependency('technicalpickles-shoulda')
+    gem.add_development_dependency('shoulda')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 

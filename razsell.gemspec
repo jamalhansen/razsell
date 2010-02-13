@@ -5,11 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{razsell}
-  s.version = "0.0.5"
+  s.version = "0.0.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jamal Hansen"]
-  s.date = %q{2010-01-10}
+  s.date = %q{2010-02-13}
+  s.description = %q{Queries Zazzle RSS feed for data.}
   s.email = %q{jamal.hansen@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -23,9 +24,9 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "docs/RSSGuide1.02.pdf",
-     "features/product_lines.feature",
+     "docs/feed sample.txt",
+     "docs/item sample.txt",
      "features/razsell.feature",
-     "features/step_definitions/product_line_steps.rb",
      "features/step_definitions/razsell_steps.rb",
      "features/support/env.rb",
      "features/support/razsell_mixed_in.rb",
@@ -38,8 +39,6 @@ Gem::Specification.new do |s|
      "lib/razsell/engine.rb",
      "lib/razsell/http_service.rb",
      "lib/razsell/item.rb",
-     "lib/razsell/product_line.rb",
-     "lib/razsell/product_line_parser.rb",
      "lib/razsell/query.rb",
      "lib/razsell/results.rb",
      "razsell.gemspec",
@@ -47,9 +46,7 @@ Gem::Specification.new do |s|
      "test/fixtures.rb",
      "test/fixtures/page_1.rss",
      "test/fixtures/page_2.rss",
-     "test/fixtures/productlines.htm",
      "test/fixtures/rockstar.rss",
-     "test/product_line_parser_test.rb",
      "test/product_types_test.rb",
      "test/query_test.rb",
      "test/razsell_test.rb",
@@ -66,7 +63,6 @@ Gem::Specification.new do |s|
      "test/fixtures.rb",
      "test/test_helper.rb",
      "test/results_test.rb",
-     "test/product_line_parser_test.rb",
      "test/razsell_test.rb",
      "test/query_test.rb",
      "test/engine_test.rb"
@@ -80,18 +76,18 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<hpricot>, [">= 0.8.1"])
       s.add_development_dependency(%q<cucumber>, [">= 0.3.11"])
       s.add_development_dependency(%q<mocha>, [">= 0"])
-      s.add_development_dependency(%q<technicalpickles-shoulda>, [">= 0"])
+      s.add_development_dependency(%q<shoulda>, [">= 0"])
     else
       s.add_dependency(%q<hpricot>, [">= 0.8.1"])
       s.add_dependency(%q<cucumber>, [">= 0.3.11"])
       s.add_dependency(%q<mocha>, [">= 0"])
-      s.add_dependency(%q<technicalpickles-shoulda>, [">= 0"])
+      s.add_dependency(%q<shoulda>, [">= 0"])
     end
   else
     s.add_dependency(%q<hpricot>, [">= 0.8.1"])
     s.add_dependency(%q<cucumber>, [">= 0.3.11"])
     s.add_dependency(%q<mocha>, [">= 0"])
-    s.add_dependency(%q<technicalpickles-shoulda>, [">= 0"])
+    s.add_dependency(%q<shoulda>, [">= 0"])
   end
 end
 

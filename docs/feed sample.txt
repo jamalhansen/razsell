@@ -1,0 +1,15 @@
+<rss version="2.0" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Kung Fu Tees: Zazzle.com Gallery: Products </title>
+    <link>http://feed.zazzle.com/z.2/api/find.aspx?ft=rss&amp;ch=kungfutees&amp;ou=/kungfutees/rss</link>
+    <description></description>
+    <language>en-us</language>
+    <pubDate>Sat, 13 Feb 2010 06:58:44 GMT</pubDate>
+    <ttl>60</ttl>
+    <opensearch:totalResults>3</opensearch:totalResults>
+    <opensearch:startIndex>1</opensearch:startIndex>
+    <opensearch:itemsPerPage>15</opensearch:itemsPerPage>
+    <opensearch:Query role="request" searchTerms="" /> 
+    <!--... items ... -->
+  </channel>
+</rss>

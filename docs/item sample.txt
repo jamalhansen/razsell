@@ -1,0 +1,36 @@
+<item>
+  <guid isPermaLink="false">http://www.zazzle.com/rockstar_coder_mug-168427986526885635?gl=kungfutees</guid>
+  <pubDate>Sat, 02 May 2009 13:09:16 GMT</pubDate>
+  <title><![CDATA[Rockstar Coder Mug]]></title>
+  <link>http://www.zazzle.com/rockstar_coder_mug-168427986526885635?gl=kungfutees</link>
+  <author>kungfutees</author>
+  <description><![CDATA[
+    ><div class="gridCell " id="_assetCell1"> 
+	    <div style="position:relative" class="clearfix"> 
+    <a href="http://www.zazzle.com/rockstar_coder_mug-168427986526885635?gl=kungfutees" id="_assetCell1-imageLink" class="realviewLink"
+	    ><img id="_assetCell1-preview" src="http://rlv.zcache.com/rockstar_coder_mug-p1684279865268856352obaq_152.jpg" alt="Rockstar Coder Mug" title="Rockstar Coder Mug by kungfutees"  class="realviewImage"
+    /></a> 
+    <div id="_assetCell1-productTypeIcon" class="mugIcon"></div> 
+    <a href="javascript://" id="_assetCell1-nextviewLink" class="nextviewLink"></a> 
+    </div> 
+	    <div class="gridCellInfo" id="_assetCell1-info"> 
+		    <a
+			    href="http://www.zazzle.com/rockstar_coder_mug-168427986526885635?gl=kungfutees"
+			    id="_assetCell1-title"
+			    class="productTitle" title="Rockstar Coder Mug"
+		    >Rockstar Coder Mug</a><br /> 
+		    <span class="byLine">by <a href="javascript://" id="_assetCell1-contributorLink">kungfutees</a><br /></span> 
+		    <span class="extraInfo"> 
+			    <br /> 
+			    
+		    </span> 
+	    </div> 
+    </div>]]>
+  </description>
+  <media:title><![CDATA[Rockstar Coder Mug]]></media:title>
+  <media:description><![CDATA[Want to show your inner rockstar in the break room?  Here is the perfect way.]]></media:description>
+  <media:thumbnail url="http://rlv.zcache.com/rockstar_coder_mug-p1684279865268856352obaq_125.jpg" />
+  <media:content url="http://rlv.zcache.com/rockstar_coder_mug-p1684279865268856352obaq_500.jpg" />
+  <media:keywords>rockstar, coder, ror, ruby, on, rails</media:keywords>
+  <media:rating scheme="urn:mpaa">g</media:rating>
+  </item> 

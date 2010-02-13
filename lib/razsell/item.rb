@@ -12,7 +12,7 @@ module Razsell
       values.each_key do |key|
         define_method "#{key.to_s}" do
           @values[key]
-        end\
+        end
       end
     end
   end

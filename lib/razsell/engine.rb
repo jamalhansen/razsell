@@ -1,5 +1,4 @@
 require 'razsell/http_service'
-require 'razsell/product_line_parser'
 
 module Razsell
   class Engine
@@ -17,15 +16,6 @@ module Razsell
       end
 
       results
-    end
-
-    def product_lines_for artist
-      url = "http://www.zazzle.com/#{artist}?src=razsell"
-
-      document = @http_service.get url
-
-      parser = ProductLineParser.new
-      parser.parse document
     end
 
     def get_http_service opts

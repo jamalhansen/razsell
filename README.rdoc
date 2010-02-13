@@ -1,6 +1,6 @@
 = razsell
 
-A feed parser for Zazzle.com written in Ruby.  Raszell allows you to query zazzle for information on products.
+A feed parser for Zazzle.com written in Ruby.  Razsell allows you to query zazzle for information on products.
 
 == Copyright
 

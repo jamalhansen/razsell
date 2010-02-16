@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{razsell}
-  s.version = "0.0.7"
+  s.version = "0.0.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jamal Hansen"]
-  s.date = %q{2010-02-13}
+  s.date = %q{2010-02-16}
   s.description = %q{Queries Zazzle RSS feed for data.}
   s.email = %q{jamal.hansen@gmail.com}
   s.extra_rdoc_files = [
@@ -47,6 +47,7 @@ Gem::Specification.new do |s|
      "test/fixtures/page_1.rss",
      "test/fixtures/page_2.rss",
      "test/fixtures/rockstar.rss",
+     "test/fixtures/rockstar_mug.rss",
      "test/product_types_test.rb",
      "test/query_test.rb",
      "test/razsell_test.rb",

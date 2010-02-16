@@ -11,7 +11,7 @@ module Razsell
 
     def initialize *args
       set_default_page_limit
-\
+
       default_criteria
 
       @keys = { :keywords => 'qs', :product_line => 'cg', :product_type => 'pt',
@@ -24,7 +24,16 @@ module Razsell
       @artist = artist
       self
     end
+    
+    def for_item_url url
+      @item_url = url
+      self.keywords = strip_item_number_from url
+      self
+    end
 
+    def strip_item_number_from url
+      url.scan(/\d*$/)[0]
+    end
     #def add_criteria name, value
     #  this.send name, value
     #end
@@ -90,7 +99,7 @@ module Razsell
         args.each do |attribute|
           define_method "#{attribute}=" do |value|
             @querystring[attribute] = value
-          end\
+          end
         end
       end
 

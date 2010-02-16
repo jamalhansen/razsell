@@ -28,7 +28,7 @@ class ResultsTest < Test::Unit::TestCase
       end
 
       should "have the correct pubDate" do
-        assert_equal DateTime.parse("Sat, 02 May 2009 13:06:08 GMT").to_s, @item.pub_date.to_s
+        assert_equal Time.parse("Sat, 02 May 2009 13:06:08 GMT").to_s, @item.pub_date.to_s
       end
 
       should "have the correct link" do

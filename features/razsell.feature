@@ -16,3 +16,12 @@ Feature: Query Image Link
     Then there should be "3" items
     And the items should have the keyword "Rockstar"
     And the items should have a link to a thumbnail
+
+  Scenario: Querying item information from an item url
+    Given a desire to query a "rockstar_mug" item on Zazzle
+    When I query the link "http://www.zazzle.com/rockstar_coder_mug-168427986526885635"
+    Then there should be "1" items
+    And the items should have the keyword "Rockstar"
+    And the items should have the keyword "Coder"
+    And the items should have the keyword "Mug"
+    And the items should have a link to a thumbnail

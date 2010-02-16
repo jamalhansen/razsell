@@ -5,6 +5,12 @@ Given /^a desire to query the artist "([^\"]*)" on Zazzle$/ do |artist|
   @query = Razsell::Query.new.for_artist(artist)
 end
 
+Given /^a desire to query a "([^\"]*)" item on Zazzle$/ do |fixture|
+  @fixture = fixture
+  @sut = RazsellMixedIn.new
+  @query = Razsell::Query.new
+end
+
 When /^the "([^\"]*)" is "([^\"]*)"$/ do |name, value|
   @query.add_criteria(name, value)
 end
@@ -14,6 +20,18 @@ When /^I query "([^\"]*)"$/ do |fixture|
   http_service.expects(:get).once.returns(feed(fixture))
 
   @result = @sut.request(@query, :http_service => http_service)
+end
+
+When /^I query the link "([^\"]*)"$/ do |link|
+  @query.for_item_url(link)
+  http_service = Razsell::HttpService.new
+  http_service.expects(:get).once.returns(feed(@fixture))
+  
+  @result = @sut.request(@query, :http_service => http_service)
+end
+
+Then /^there should be "([^\"]*)" item$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
 end
 
 Then /^there should be "([^\"]*)" items/ do |item_count|

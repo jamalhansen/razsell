@@ -142,6 +142,13 @@ class QueryTest < Test::Unit::TestCase
       expected = "http://feed.zazzle.com/kungfutees/rss?bg=FFFFFF&ft=rss&isz=large&opensearch=1&pg=1&ps=50&src=razsell&st=popularity"
       assert_equal expected, qs
     end
+    
+    should "build url for a specific item url" do
+      query = Razsell::Query.new.for_item_url("http://www.zazzle.com/rockstar_coder_mug-168427986526885635")
+      qs = query.to_url
+      expected = "http://feed.zazzle.com/rss?bg=FFFFFF&ft=rss&isz=large&opensearch=1&pg=1&ps=50&qs=168427986526885635&src=razsell&st=popularity"
+      assert_equal expected, qs
+    end
   end
 
   context "advancing the page" do

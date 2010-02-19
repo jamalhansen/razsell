@@ -15,5 +15,9 @@ module Razsell
         end
       end
     end
+    
+    def to_hash
+      @values
+    end
   end
 end

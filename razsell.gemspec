@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{razsell}
-  s.version = "0.0.8"
+  s.version = "0.0.9"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jamal Hansen"]
-  s.date = %q{2010-02-16}
+  s.date = %q{2010-02-18}
   s.description = %q{Queries Zazzle RSS feed for data.}
   s.email = %q{jamal.hansen@gmail.com}
   s.extra_rdoc_files = [

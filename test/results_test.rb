@@ -63,6 +63,19 @@ class ResultsTest < Test::Unit::TestCase
       should "have the correct rating" do
         assert_equal "g", @item.rating
       end
+      
+      should "convert to hash" do
+        hash = @item.to_hash
+        assert_equal "Ladies Rockstar TShirt", hash[:title]
+        assert_equal "http://www.zazzle.com/ladies_rockstar_tshirt-235898004129790991?gl=kungfutees", hash[:guid]
+        assert_equal Time.parse("Sat, 02 May 2009 13:06:08 GMT").to_s, hash[:pub_date].to_s
+        assert_equal "http://www.zazzle.com/ladies_rockstar_tshirt-235898004129790991?gl=kungfutees", hash[:link]
+        assert_equal "kungfutees", hash[:author]
+        assert_equal "Ladies are Rockstar Coders too!", hash[:description]
+        assert_equal "http://rlv.zcache.com/ladies_rockstar_tshirt-p235898004129790991ojnq_125.jpg", hash[:thumbnail_url]
+        assert_equal "http://rlv.zcache.com/ladies_rockstar_tshirt-p235898004129790991ojnq_500.jpg", hash[:content_url]
+        assert_equal 6, hash[:keywords].length
+      end
     end
   end
 

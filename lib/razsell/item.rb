@@ -17,7 +17,7 @@ module Razsell
     end
     
     def to_hash
-      @values
+      @values.dup
     end
   end
 end

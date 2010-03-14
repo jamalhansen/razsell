@@ -1,5 +1,6 @@
 
 module Razsell
+  # TODO check to ensure that this matches with the current product type listing
   module ProductTypes
     BUMPER_STICKER ="128"
     CARD = "137"

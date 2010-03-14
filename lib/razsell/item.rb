@@ -1,5 +1,6 @@
-
 module Razsell
+  
+  # Represents a single item returned in the rss feed
   class Item
     def initialize values={}
       @values = values

@@ -1,6 +1,9 @@
 require 'hpricot'
 
 module Razsell
+
+  # This class returns the query results
+
   class Results
     attr_accessor :items, :result_count, :items_per_page
 
@@ -22,18 +25,16 @@ module Razsell
     end
 
     def build_hash_from item
-      item_hash = {}
-      item_hash[:title] = strip_cdata(item.at("title").inner_html)
-      item_hash[:guid] = item.at("guid").inner_html
-      item_hash[:pub_date] = Time.parse(item.at("pubDate").inner_html)
-      item_hash[:link] = item.at("link").inner_html
-      item_hash[:author] = item.at("author").inner_html
-      item_hash[:description] = strip_cdata(item.at("media:description").inner_html)
-      item_hash[:thumbnail_url] = item.at("media:thumbnail")['url']
-      item_hash[:content_url] = item.at("media:content")['url']
-      item_hash[:keywords] = split_keywords(item.at("media:keywords").inner_html)
-      item_hash[:rating] = item.at("media:rating").inner_html
-      item_hash
+      { title: strip_cdata(item.at("title").inner_html),
+        guid: item.at("guid").inner_html,
+        pub_date: Time.parse(item.at("pubDate").inner_html),
+        link: item.at("link").inner_html,
+        author: item.at("author").inner_html,
+        description: strip_cdata(item.at("media:description").inner_html),
+        thumbnail_url: item.at("media:thumbnail")['url'],
+        content_url: item.at("media:content")['url'],
+        keywords: split_keywords(item.at("media:keywords").inner_html),
+        rating: item.at("media:rating").inner_html }
     end
 
     def split_keywords words

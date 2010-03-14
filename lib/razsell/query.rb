@@ -2,6 +2,28 @@ require 'razsell/constants'
 require 'cgi'
 
 module Razsell
+
+  # Allows you to specify the result set you would like returned
+  #
+  #  === Attributes that you can specify
+  #  * keywords
+  #  * product_line
+  #  * product_type  (see Razsell::ProductTypes)
+  #  * sort_type  (see Razsell::SortMethods)
+  #  * sort_period  (see Razsell::SortPeriods)
+  #  * image_size  (see Razsell::ImageSizes)
+  #  * image_background_color
+  #
+  # Additionally you can use 
+  #
+  #   query = Razsell::Query.new.for_artist('some_zazzle_artist')
+  #
+  # to specify the artist.  Or if you have a link to a zazzle item you can get the details with:
+  #
+  #   query = Razsell::Query.new.for_item_url('http://www.zazzle.com/some-item-354678976578865')
+  #
+  # Once you have built your query, use Razsell#request(query) to get the results.
+
   class Query
     include Razsell::SortMethods
     include Razsell::ImageSizes
@@ -34,9 +56,6 @@ module Razsell
     def strip_item_number_from url
       url.scan(/\d*$/)[0]
     end
-    #def add_criteria name, value
-    #  this.send name, value
-    #end
 
     def base_url
       return "http://feed.zazzle.com/#{@artist}/rss" if @artist
@@ -44,7 +63,7 @@ module Razsell
     end
 
     def to_querystring
-      @querystring.to_a.map { |a| build_pair(a) }.sort {|x,y| x <=> y }.delete_if { |pair| pair == "" }.join("&")
+      @querystring.to_a.map { |element| build_pair(element) }.sort {|first, second| first <=> second }.delete_if { |pair| pair == "" }.join("&")
     end
 
     def to_url
@@ -52,27 +71,25 @@ module Razsell
     end
 
     def advance_page
-      return false if @querystring[:page] >= page_limit
+      cur_page = @querystring[:page]
+      return false if cur_page >= page_limit
 
-      @querystring[:page] =  @querystring[:page] + 1
+      @querystring[:page] =  cur_page + 1
       true
     end
 
     private
       def build_pair pair
-        return "#{get_querystring_identifier(pair[0])}=#{format_value(pair[1])}" if pair[1]
-        ""
-      end
-
-      def get_querystring_identifier key
-        @keys[key] if @keys[key]
+        key, value = pair
+        return "" unless value
+        
+        "#{@keys[key]}=#{format_value(value)}"
       end
 
       def format_value value
         CGI.escape(value.to_s)
       end
 
-      
       def set_default_page_limit
         @page_limit = 5
       end
@@ -102,8 +119,6 @@ module Razsell
           end
         end
       end
-
-
 
       attr_querystring_read :keywords, :product_line, :product_type,
         :sort_type, :sort_period, :page, :items_per_page,

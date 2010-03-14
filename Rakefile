@@ -9,15 +9,16 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "razsell"
-    gem.summary = %Q{A gem for getting info about products on a website that has a similar name}
+    gem.summary = %Q{A gem for getting info about products on Zazzle.com}
     gem.description = %Q{Queries Zazzle RSS feed for data.}
     gem.email = "jamal.hansen@gmail.com"
-    gem.homepage = "http://github.com/rubyyot/razsell"
+    gem.homepage = "http://rubyyot.com/razsell"
     gem.authors = ["Jamal Hansen"]
     gem.add_dependency('hpricot', '>= 0.8.1')
     gem.add_development_dependency('cucumber', '>= 0.3.11')
     gem.add_development_dependency('mocha')
     gem.add_development_dependency('shoulda')
+    gem.add_development_dependency('reek')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
@@ -47,7 +48,7 @@ end
 
 begin
   require 'cucumber/rake/task'
-  Cucumber::Rake::Task.new(:features) 
+  Cucumber::Rake::Task.new(:features)
 rescue LoadError
   task :features do
     abort "Cucumber is not available. In order to run features, you must: sudo gem install cucumber"
@@ -80,3 +81,11 @@ namespace :products do
     results.items.sort {|x,y| x.title <=> y.title }.each { |p| puts p.title }
   end
 end
+
+require 'reek/rake/task'
+
+Reek::Rake::Task.new do |t|
+  t.fail_on_error = false
+end
+
+

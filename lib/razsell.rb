@@ -4,7 +4,7 @@ require 'razsell/item'
 require 'razsell/query'
 
 
-module Razsell
+module Razsell::Mixin
   def request query, opts={}
     engine = Razsell::Engine.new opts
     engine.request(query)
@@ -15,4 +15,8 @@ module Razsell
     query = Razsell::Query.new.for_artist(artist)
     engine.request(query)
   end
+end
+
+module Razsell
+  extend Razsell::Mixin
 end

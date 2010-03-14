@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{razsell}
-  s.version = "0.0.10"
+  s.version = "0.0.11"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jamal Hansen"]
-  s.date = %q{2010-02-18}
+  s.date = %q{2010-03-14}
   s.description = %q{Queries Zazzle RSS feed for data.}
   s.email = %q{jamal.hansen@gmail.com}
   s.extra_rdoc_files = [
@@ -54,11 +54,11 @@ Gem::Specification.new do |s|
      "test/results_test.rb",
      "test/test_helper.rb"
   ]
-  s.homepage = %q{http://github.com/rubyyot/razsell}
+  s.homepage = %q{http://rubyyot.com/razsell}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
-  s.summary = %q{A gem for getting info about products on a website that has a similar name}
+  s.rubygems_version = %q{1.3.6}
+  s.summary = %q{A gem for getting info about products on Zazzle.com}
   s.test_files = [
     "test/product_types_test.rb",
      "test/fixtures.rb",
@@ -78,17 +78,20 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<cucumber>, [">= 0.3.11"])
       s.add_development_dependency(%q<mocha>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
+      s.add_development_dependency(%q<reek>, [">= 0"])
     else
       s.add_dependency(%q<hpricot>, [">= 0.8.1"])
       s.add_dependency(%q<cucumber>, [">= 0.3.11"])
       s.add_dependency(%q<mocha>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
+      s.add_dependency(%q<reek>, [">= 0"])
     end
   else
     s.add_dependency(%q<hpricot>, [">= 0.8.1"])
     s.add_dependency(%q<cucumber>, [">= 0.3.11"])
     s.add_dependency(%q<mocha>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
+    s.add_dependency(%q<reek>, [">= 0"])
   end
 end
 

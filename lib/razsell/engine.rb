@@ -1,9 +1,11 @@
 require 'razsell/http_service'
 
 module Razsell
+  # Use the engine class to make requests and receive results
   class Engine
     def initialize opts={}
-      @http_service = get_http_service opts
+      @opts = opts
+      @http_service = get_http_service
     end
 
     def request query
@@ -18,8 +20,8 @@ module Razsell
       results
     end
 
-    def get_http_service opts
-      opts[:http_service] ? opts[:http_service] : Razsell::HttpService.new
+    def get_http_service
+      @opts[:http_service] || Razsell::HttpService.new
     end
   end
 end
